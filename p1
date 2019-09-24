@@ -15,3 +15,7 @@ The random module implements pseudo-random number generators for various distrib
 Python’s assert statement is a debugging aid that tests a condition. If the condition is true, it does nothing and your program just continues to execute. But if the assert condition evaluates to false, it raises an AssertionError exception with an optional error message.
 
 RGB COLORING IS USED
+
+DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) DISPLAY SURFACE/ WINDOW SIZE
+
+pygame.display.set_caption('Memory Game') Setting the title/caption of window
