@@ -56,3 +56,10 @@ If the mouse cursor was not over any box (for example, if it was off to the side
 Before the execution entered the game loop, the firstSelection variable was set to None. Our program will interpret this to mean that no boxes have been clicked, so if line condition is True, that means this is the first of the two possibly matching boxes that was clicked. We want to play the reveal animation for the box and then keep that box uncovered. We also set the firstSelection variable to a tuple of the box coordinates for the box that was clicked.
 
 If this is the second box the player has clicked on, we want to play the reveal animation for that box but then check if the two icons under the boxes are matching. The getShapeAndColor() function will retrieve the shape and color values of the icons. (These values will be one of the values in the ALLCOLORS and ALLSHAPES tuples.)
+
+The generateRevealedBoxesData() function needs to create a list of lists of Boolean values. The Boolean value will just be the one that is passed to the function as the val parameter. We start the data structure as an empty list in the revealedBoxes variable.
+In order to make the data structure have the revealedBoxes[x][y] structure, we need to make sure that the inner lists represent the vertical columns of the board and not the horizontal rows.
+
+The board data structure is just a list of lists of tuples, where each tuple has a two values: one for the icon’s shape and one for the icon’s color.
+The first step to do this is to create a list with every possible combination of shape and color.
+For each column on the board, we will create a list of randomly selected icons.
