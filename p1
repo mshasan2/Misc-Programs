@@ -1,4 +1,17 @@
+pygame.event.Event Objects Any time the user does one of several actions such as pressing a keyboard key or moving the mouse on the program’s window, a pygame.event.Event object is created by the Pygame library to record this “event”.
+Event objects have a member variable (also called attributes or properties) named type which tells us what kind of event the object represents.
+
 pygame.time.Clock object can help us make sure our program runs at a certain maximum FPS.
 pygame.mixer.Sound object Playing sounds that are stored in sound files
 soundObj.play() The program execution continues immediately after play() is called
 To stop playing the background music immediately, call the pygame.mixer.music.stop()
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+The random module implements pseudo-random number generators for various distributions.
+
+Python’s assert statement is a debugging aid that tests a condition. If the condition is true, it does nothing and your program just continues to execute. But if the assert condition evaluates to false, it raises an AssertionError exception with an optional error message.
+
+RGB COLORING IS USED
