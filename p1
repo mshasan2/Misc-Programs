@@ -47,6 +47,12 @@ If the mouse cursor was not over any box (for example, if it was off to the side
  
  if not revealedBoxes[boxx][boxy]:  checks if the box is covered up or not by reading the value stored in revealedBoxes[boxx][boxy]. If it is False, then we know the box is covered. Whenever the mouse is over a covered up box, we want to draw a blue highlight around the box to inform the player that they can click on it. This highlighting is not done for boxes that are already uncovered. The highlight drawing is handled by our drawHighlightBox() function
  
- 
+ if not revealedBoxes[boxx][boxy] and mouseClicked: 
+    revealBoxesAnimation(mainBoard, [(boxx, boxy)])
+    revealedBoxes[boxx][boxy] = True
+    
+    we check if the mouse cursor is not only over a covered up box but if the mouse has also been clicked. In that case, we want to play the “reveal” animation for that box by calling our revealBoxesAnimation() function. You should note that calling this function only draws the animation of the box being uncovered. It isn’t until when we set revealedBoxes[boxx][boxy] = True that the data structure that tracks the game state is updated.
 
+Before the execution entered the game loop, the firstSelection variable was set to None. Our program will interpret this to mean that no boxes have been clicked, so if line condition is True, that means this is the first of the two possibly matching boxes that was clicked. We want to play the reveal animation for the box and then keep that box uncovered. We also set the firstSelection variable to a tuple of the box coordinates for the box that was clicked.
 
+If this is the second box the player has clicked on, we want to play the reveal animation for that box but then check if the two icons under the boxes are matching. The getShapeAndColor() function will retrieve the shape and color values of the icons. (These values will be one of the values in the ALLCOLORS and ALLSHAPES tuples.)
