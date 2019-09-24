@@ -12,10 +12,16 @@ To stop playing the background music immediately, call the pygame.mixer.music.st
 
 The random module implements pseudo-random number generators for various distributions.
 
+from (module name) import * format, which means you do not have to type the module name in front of it. There are no functions in the pygame.locals module, but there are several constant variables in it that we want to use such as MOUSEMOTION, KEYUP, or QUIT. Using this style of import statement, we only have to type MOUSEMOTION rather than pygame.locals.MOUSEMOTION.
+
 Python’s assert statement is a debugging aid that tests a condition. If the condition is true, it does nothing and your program just continues to execute. But if the assert condition evaluates to false, it raises an AssertionError exception with an optional error message.
+ There are three parts to an assert statement: the assert keyword, an expression which, if False, results in crashing the program. The third part (after the comma after the expression) is a string that appears if the program crashes because of the assertion.
 
 RGB COLORING IS USED
 
 DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) DISPLAY SURFACE/ WINDOW SIZE
 
 pygame.display.set_caption('Memory Game') Setting the title/caption of window
+
+The getRandomizedBoard() function returns a data structure that represents the state of the board. The generateRevealedBoxesData() function returns a data structure that represents which boxes are covered, respectively. The return values of these functions are two dimensional (2D) lists, or lists of lists. 
+
