@@ -1,0 +1,4 @@
+pygame.time.Clock object can help us make sure our program runs at a certain maximum FPS.
+pygame.mixer.Sound object Playing sounds that are stored in sound files
+soundObj.play() The program execution continues immediately after play() is called
+To stop playing the background music immediately, call the pygame.mixer.music.stop()
