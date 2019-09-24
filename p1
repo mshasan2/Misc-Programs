@@ -23,5 +23,30 @@ DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT)) DISPLAY SURFA
 
 pygame.display.set_caption('Memory Game') Setting the title/caption of window
 
-The getRandomizedBoard() function returns a data structure that represents the state of the board. The generateRevealedBoxesData() function returns a data structure that represents which boxes are covered, respectively. The return values of these functions are two dimensional (2D) lists, or lists of lists. 
+The getRandomizedBoard() function returns a data structure that represents the state of the board. 
+
+The generateRevealedBoxesData() function returns a data structure that represents which boxes are covered, respectively. The return values of these functions are two dimensional (2D) lists, or lists of lists.
+
+Since the mainBoard variable will store icons in it, if we wanted to get the icon on the board at the position (4, 5) then we could just use the expression mainBoard[4][5]. Since the icons themselves are stored as two-item tuples with the shape and color, the complete data structure is a list of list of two-item tuples.
+
+When the player clicks on an icon on the board, the program needs to track if this was the first icon of the pair that was clicked on or the second icon. If firstSelection is None, the click was on the first icon and we store the XY coordinates in the firstSelection variable as a tuple of two integers (one for the X value, the other for Y). On the second click the value will be this tuple and not None, which is how the program tracks that it is the second icon click.
+
+DISPLAYSURF.fill(BGCOLOR) fills the entire surface with the background color. This will also paint over anything that used to be on the surface, which gives us a clean slate to start drawing graphics on.The surface is painted over with the background color to erase anything that was previously drawn on it. The program then calls drawBoard() to draw the current state of the board based on the board and “revealed boxes” data structures that we pass it.
+
+On each iteration of the game loop in the Memory Puzzle program, the mouseClicked variable stores a Boolean value that is True if the player has clicked the mouse during this iteration through the game loop. (This is part of keeping track of the game state.)
+
+This Surface object will not actually appear on the screen until we call pygame.display.update(), which is done at the end of the game loop.
+
+for event in pygame.event.get(): executes code for every event that has happened since the last iteration of the game loop. This loop is called the event handling loop (which is different from the game loop, although the event handling loop is inside of the game loop) and iterates over the list of pygame.Event objects returned by the pygame.event.get() call.
+
+If the event object was a either a QUIT event or a KEYUP event for the Esc key, then the program should terminate. Otherwise, in the event of a MOUSEMOTION event (that is, the mouse cursor has moved) or MOUSEBUTTONUP event (that is, a mouse button was pressed earlier and now the button was let up), the position of the mouse cursor should be stored in the mousex and mousey variables. If this was a MOUSEBUTTONUP event, mouseClicked should also be set to True.
+Once we have handled all of the events, the values stored in mousex, mousey, and mouseClicked will tell us any input that player has given us. Now we should update the game state and draw the results to the screen.
+
+The getBoxAtPixel() function will return a tuple of two integers. The integers represent the XY board coordinates of the box that the mouse coordinates are over.
+If the mouse cursor was not over any box (for example, if it was off to the side of the board or in a gap in between boxes) then the tuple (None, None) is returned by the function and boxx and boxy will both have None stored in them.
+ 
+ if not revealedBoxes[boxx][boxy]:  checks if the box is covered up or not by reading the value stored in revealedBoxes[boxx][boxy]. If it is False, then we know the box is covered. Whenever the mouse is over a covered up box, we want to draw a blue highlight around the box to inform the player that they can click on it. This highlighting is not done for boxes that are already uncovered. The highlight drawing is handled by our drawHighlightBox() function
+ 
+ 
+
 
