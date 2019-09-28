@@ -19,6 +19,6 @@ for i in range(36,len(soup.findAll('a'))+1):
     download_url='http://web.mta.info/developers/'+link
     urllib.request.urlretrieve(download_url,'./'+link[link.find('/turnstile_')+1:])
 
-    #to pause, not to spam website with requests
-    #avoid being flagged as spammer
+    #to pause, not to spam website with requests and avoid being flagged as spammer
+ 
     time.sleep(1)
