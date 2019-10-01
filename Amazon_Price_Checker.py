@@ -2,8 +2,9 @@
 #Replace YOUR-EMAIL-HERE@gmail.com with your e-mail
 #Replace VERIFICATION-CODE-HERE with your verification code from your email provider
 #Replace RECEIVER-EMAIL-HERE@gmail.com with the email address of the receiver
-#Replace the limit in line 30 with the new limit, which once crossed will trigger this app to send email
+#Replace the limit in line 31 with the new limit, which once crossed will trigger this app to send email
 #Designed for Amazoin.in
+
 import requests
 from bs4 import BeautifulSoup
 import smtplib #Simple Mail Transfer Protocol Library
@@ -39,7 +40,7 @@ def send_mail():#creating your email connection with google to send mail when pr
     server.login('YOUR-EMAIL-HERE@gmail.com',"VERIFICATION-CODE-HERE")
 
     subject = "Price Drop!!"
-    body="Check the amazon link https://www.amazon.in/HP-Express-Backpack-15-6-inch-laptops/dp/B07H5YQ1MS "
+    body="Check the amazon link https://www.amazon.in/HP-Express-Backpack-15-6-inch-laptops/dp/B07H5YQ1MS "#Your message here
 
     msg = f"Subject:{subject}\n\n{body}"
 
