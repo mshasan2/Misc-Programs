@@ -1,3 +1,9 @@
+#Replace URL with the URL of your product
+#Replace YOUR-EMAIL-HERE@gmail.com with your e-mail
+#Replace VERIFICATION-CODE-HERE with your verification code from your email provider
+#Replace RECEIVER-EMAIL-HERE@gmail.com with the email address of the receiver
+#Replace the limit in line 30 with the new limit, which once crossed will trigger this app to send email
+#Designed for Amazoin.in
 import requests
 from bs4 import BeautifulSoup
 import smtplib #Simple Mail Transfer Protocol Library
@@ -21,7 +27,7 @@ def check_price():
     converted_price=float(price[15:19]) #slicing out the price and converting it from str to float
     print(converted_price)#Product_Price
 
-    if(converted_price<600):
+    if(converted_price<600#Set_Limit_Here): #Price_limit
         send_mail()
 
 def send_mail():#creating your email connection with google to send mail when price drops
@@ -49,3 +55,6 @@ def send_mail():#creating your email connection with google to send mail when pr
 while True:
         check_price()
         time.sleep(60*60) #checks price every hour
+       
+#To install BeautifulSoup- pip install BS4
+#Designed with Python3
