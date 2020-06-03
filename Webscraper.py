@@ -1,4 +1,4 @@
-#From http://web.mta.info/developers/turnstile.html
+#Webscraping from http://web.mta.info/developers/turnstile.html
 import requests #pip install requests
 import urllib.request #standard module
 import time
