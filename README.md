@@ -1,1 +1,1 @@
-# Miscellanious Programs
+# Miscellaneous Programs
