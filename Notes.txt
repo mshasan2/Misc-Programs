@@ -1,0 +1,1 @@
+Captchas can be solved using BrightData tool.
